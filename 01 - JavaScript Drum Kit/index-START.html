@@ -64,6 +64,7 @@
   for (let i = 0; i < keys.length; i++) {
     keys[i].addEventListener('click', (e) => {
       keys[i].classList.add('playing')
+      sounds[i].currentTime = 0
       sounds[i].play()
       setTimeout(() => {
         keys[i].classList.remove ('playing')
@@ -77,6 +78,7 @@
       for (let i = 0; i < keys.length; i++) {
         if (+keys[i].dataset.key === keyCode || makeLower(+keys[i].dataset.key) === keyCode) {
           keys[i].classList.add('playing')
+          sounds[i].currentTime = 0
           sounds[i].play()
           setTimeout(() => {
             keys[i].classList.remove ('playing')
