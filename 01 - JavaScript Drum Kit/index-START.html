@@ -71,7 +71,27 @@
     })
   }
 
+  document.addEventListener('keypress', function(e) {
+      var keyCode = e.keyCode;
+      console.log(keyCode);
+      for (let i = 0; i < keys.length; i++) {
+        if (+keys[i].dataset.key === keyCode || makeLower(+keys[i].dataset.key) === keyCode) {
+          keys[i].classList.add('playing')
+          sounds[i].play()
+          setTimeout(() => {
+            keys[i].classList.remove ('playing')
+          }, 100);
+        }
+      }
+    });
 
+    function makeCapital(charCode) {
+      return charCode - 32
+    }
+
+    function makeLower(charCode) {
+      return charCode + 32
+    }
 
 </script>
 
