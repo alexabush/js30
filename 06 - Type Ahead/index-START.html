@@ -14,8 +14,26 @@
       <li>or a state</li>
     </ul>
   </form>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 <script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+$(async function() {
+  const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+ 
+  let fetchData = async function(url) {
+    try {
+      let res = await fetch(url)
+      let rawData = await res.json()
+      return rawData
+    } catch(error) {
+      return console.log(error);
+    }
+    return rawData
+  }
+  console.log(await fetchData(endpoint));
+})
 
 </script>
   </body>
