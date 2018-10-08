@@ -1,3 +1,4 @@
+'use strict';
 console.log('connected1');
 $(async function() {
   console.log('connected');
@@ -15,13 +16,14 @@ $(async function() {
       let cityLi = $('<li>')
         .addClass('suggestions')
         .append(
-          $('<p>')
+          $('<span>')
+            .addClass('name')
             .text(`${city.city}, ${city.state}`)
-            .append(
-              $('<span>')
-                .addClass('suggestions')
-                .text(addCommas(city.population))
-            )
+        )
+        .append(
+          $('<span>')
+            .addClass('suggestions')
+            .text(addCommas(city.population))
         );
       return cityLi;
     });
@@ -30,13 +32,17 @@ $(async function() {
   });
 
   function addCommas(num) {
-    //add proper commas to num
-    return num;
+    return (x => {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    })(num);
   }
 
   function filterCities(substring) {
     return cities.filter(city => {
-      return city.city.toLowerCase().includes(substring.toLowerCase());
+      return (
+        city.city.toLowerCase().includes(substring.toLowerCase()) ||
+        city.state.toLowerCase().includes(substring.toLowerCase())
+      );
     });
   }
 });
