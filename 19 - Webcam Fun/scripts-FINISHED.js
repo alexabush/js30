@@ -8,6 +8,7 @@ function getVideo() {
   navigator.mediaDevices.getUserMedia({ video: true, audio: false })
     .then(localMediaStream => {
       console.log(localMediaStream);
+<<<<<<< HEAD
     
 //  DEPRECIATION : 
 //       The following has been depreceated by major browsers as of Chrome and Firefox.
@@ -17,6 +18,9 @@ function getVideo() {
 //       Newer Syntax - https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/srcObject
       
       video.srcObject = localMediaStream;
+=======
+      video.src = window.URL.createObjectURL(localMediaStream);
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
       video.play();
     })
     .catch(err => {

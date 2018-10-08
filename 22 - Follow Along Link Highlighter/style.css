@@ -1,11 +1,17 @@
 html {
   box-sizing: border-box;
 }
+<<<<<<< HEAD
 
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
+=======
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 body {
   min-height: 100vh;
   margin: 0; /* Important! */
@@ -18,8 +24,13 @@ body {
 }
 
 .wrapper {
+<<<<<<< HEAD
   margin: 0 auto;
   max-width: 500px;
+=======
+  margin:0 auto;
+  max-width:500px;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   font-size: 20px;
   line-height: 2;
   position: relative;
@@ -27,13 +38,19 @@ body {
 
 a {
   text-decoration: none;
+<<<<<<< HEAD
   color: black;
   background: rgba(0,0,0,0.05);
+=======
+  color:black;
+  background:rgba(0,0,0,0.05);
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   border-radius: 20px;
 }
 
 .highlight {
   transition: all 0.2s;
+<<<<<<< HEAD
   border-bottom: 2px solid white;
   position: absolute;
   top: 0;
@@ -41,6 +58,15 @@ a {
   left: 0;
   z-index: -1;
   border-radius: 20px;
+=======
+  border-bottom:2px solid white;
+  position: absolute;
+  top:0;
+  background:white;
+  left:0;
+  z-index: -1;
+  border-radius:20px;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   display: block;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
@@ -55,7 +81,13 @@ a {
 
 .menu a {
   display: inline-block;
+<<<<<<< HEAD
   padding: 5px;
   margin: 0 20px;
   color: black;
+=======
+  padding:5px;
+  margin:0 20px;
+  color:black;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 }

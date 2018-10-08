@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
+=======
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 <head>
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<<<<<<< HEAD
 
 <body>
+=======
+<body>
+
+
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   <div class="keys">
     <div data-key="65" class="key">
       <kbd>A</kbd>
@@ -46,6 +55,10 @@
       <span class="sound">tink</span>
     </div>
   </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   <audio data-key="65" src="sounds/clap.wav"></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
   <audio data-key="68" src="sounds/kick.wav"></audio>
@@ -55,6 +68,7 @@
   <audio data-key="74" src="sounds/snare.wav"></audio>
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
+<<<<<<< HEAD
   <script>
   const soundsList = document.querySelectorAll('audio');
   const keys = document.querySelector('.keys');
@@ -87,3 +101,49 @@
 </body>
 
 </html>
+=======
+
+<script>
+  console.log('script connected');
+  let keys = document.querySelectorAll('.key')
+  let sounds = document.querySelectorAll('audio')
+  for (let i = 0; i < keys.length; i++) {
+    keys[i].addEventListener('click', (e) => {
+      keys[i].classList.add('playing')
+      sounds[i].currentTime = 0
+      sounds[i].play()
+      setTimeout(() => {
+        keys[i].classList.remove ('playing')
+      }, 100);
+    })
+  }
+
+  document.addEventListener('keypress', function(e) {
+      var keyCode = e.keyCode;
+      console.log(keyCode);
+      for (let i = 0; i < keys.length; i++) {
+        if (+keys[i].dataset.key === keyCode || makeLower(+keys[i].dataset.key) === keyCode) {
+          keys[i].classList.add('playing')
+          sounds[i].currentTime = 0
+          sounds[i].play()
+          setTimeout(() => {
+            keys[i].classList.remove ('playing')
+          }, 100);
+        }
+      }
+    });
+
+    function makeCapital(charCode) {
+      return charCode - 32
+    }
+
+    function makeLower(charCode) {
+      return charCode + 32
+    }
+
+</script>
+
+
+</body>
+</html>
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468

@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+<<<<<<< HEAD
   background: #eeeeee;
   font-family: 'helvetica neue';
   font-size: 20px;
@@ -10,6 +11,16 @@ body {
   margin: 0;
 }
 
+=======
+  background:#eeeeee;
+  font-family:'helvetica neue';
+  font-size: 20px;
+  font-weight: 200;
+}
+body {
+  margin: 0;
+}
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -17,8 +28,13 @@ body {
 .site-wrap {
   max-width: 700px;
   margin: 70px auto;
+<<<<<<< HEAD
   background: white;
   padding: 40px;
+=======
+  background:white;
+  padding:40px;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   text-align: justify;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.05);
   transform: scale(0.98);
@@ -27,15 +43,24 @@ body {
 
 header {
   text-align: center;
+<<<<<<< HEAD
   height: 50vh;
   background: url(http://wes.io/iEgP/wow-so-deep.jpg) bottom center no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
+=======
+  height:50vh;
+  background:url(http://wes.io/iEgP/wow-so-deep.jpg) bottom center no-repeat;
+  background-size:cover;
+  display:flex;
+  align-items:center;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   justify-content: center;
 }
 
 h1 {
+<<<<<<< HEAD
   color: white;
   font-size: 7vw;
   text-shadow: 3px 4px 0 rgba(0,0,0,0.2);
@@ -46,6 +71,18 @@ nav {
   top: 0;
   width: 100%;
   transition: all 0.5s;
+=======
+  color:white;
+  font-size: 7vw;
+  text-shadow: 3px 4px 0 rgba(0,0,0,0.2)
+}
+
+nav {
+  background:black;
+  top:0;
+  width: 100%;
+  transition:all 0.5s;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   position: relative;
   z-index: 1;
 }
@@ -54,11 +91,19 @@ nav ul {
   margin: 0;
   padding:0;
   list-style: none;
+<<<<<<< HEAD
   display: flex;
 }
 
 nav li {
   flex: 1;
+=======
+  display:flex;
+}
+
+nav li {
+  flex:1;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   text-align: center;
   display: flex;
   justify-content: center;
@@ -66,7 +111,11 @@ nav li {
 }
 
 li.logo {
+<<<<<<< HEAD
   max-width: 0;
+=======
+  max-width:0;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   overflow: hidden;
   background: white;
   transition: all .5s;
@@ -75,14 +124,25 @@ li.logo {
 }
 
 li.logo a {
+<<<<<<< HEAD
   color: black;
+=======
+  color:black;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 }
 
 nav a {
   text-decoration: none;
+<<<<<<< HEAD
   padding: 20px;
   display: inline-block;
   color: white;
   transition: all 0.2s;
+=======
+  padding:20px;
+  display: inline-block;
+  color:white;
+  transition:all 0.2s;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   text-transform: uppercase;
 }

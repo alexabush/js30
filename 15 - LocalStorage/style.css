@@ -1,6 +1,7 @@
 
     html {
       box-sizing: border-box;
+<<<<<<< HEAD
       background: url('http://wes.io/hx9M/oh-la-la.jpg') center no-repeat;
       background-size: cover;
       min-height: 100vh;
@@ -14,13 +15,29 @@
     *, *:before, *:after {
       box-sizing: inherit; 
     }
+=======
+      background:url('http://wes.io/hx9M/oh-la-la.jpg') center no-repeat;
+      background-size:cover;
+      min-height:100vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family: Futura,"Trebuchet MS",Arial,sans-serif
+    }
+    *, *:before, *:after {box-sizing: inherit; }
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 
     svg {
       fill:white;
       background: rgba(0,0,0,0.1);
       padding: 20px;
       border-radius: 50%;
+<<<<<<< HEAD
       width: 200px;
+=======
+      width:200px;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
       margin-bottom: 50px;
     }
 
@@ -52,8 +69,14 @@
     }
 
     .plates label {
+<<<<<<< HEAD
       flex: 1;
       cursor: pointer;
+=======
+      flex:1;
+      cursor: pointer;
+
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
     }
 
     .plates input {
@@ -74,7 +97,13 @@
     }
 
     .add-items input {
+<<<<<<< HEAD
       padding: 10px;
       outline: 0;
       border: 1px solid rgba(0,0,0,0.1);
+=======
+      padding:10px;
+      outline:0;
+      border:1px solid rgba(0,0,0,0.1);
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
     }

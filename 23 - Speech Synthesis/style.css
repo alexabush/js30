@@ -11,8 +11,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+<<<<<<< HEAD
   background-color: #3BC1AC;
   display: flex;
+=======
+  background-color:#3BC1AC;
+  display:flex;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   min-height: 100vh;
   align-items: center;
 
@@ -25,6 +30,7 @@ body {
   background-size:100px 50px;
 }
 
+<<<<<<< HEAD
 .voiceinator {
   padding: 2rem;
   width: 50rem;
@@ -41,13 +47,37 @@ h1 {
   width: calc(100% + 4rem);
   margin: -2rem 0 2rem -2rem;
   padding: .5rem;
+=======
+
+.voiceinator {
+  padding:2rem;
+  width:50rem;
+  margin:0 auto;
+  border-radius:1rem;
+  position: relative;
+  background:white;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow:0 0 5px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+  width:calc(100% + 4rem);
+  margin: -2rem 0 2rem -2rem;
+  padding:.5rem;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   background: #ffc600;
   border-bottom: 5px solid #F3C010;
   text-align: center;
   font-size: 5rem;
   font-weight: 100;
   font-family: 'Pacifico', cursive;
+<<<<<<< HEAD
   text-shadow: 3px 3px 0 #F3C010;
+=======
+  text-shadow:3px 3px 0 #F3C010;
+
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 }
 
 .voiceinator input,
@@ -56,12 +86,21 @@ h1 {
 .voiceinator textarea {
   width: 100%;
   display: block;
+<<<<<<< HEAD
   margin: 10px 0;
   padding: 10px;
   border: 0;
   font-size: 2rem;
   background: #F7F7F7;
   outline: 0;
+=======
+  margin:10px 0;
+  padding:10px;
+  border:0;
+  font-size: 2rem;
+  background:#F7F7F7;
+  outline:0;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 }
 
 textarea {
@@ -73,20 +112,35 @@ input[type="select"] {
 }
 
 .voiceinator button {
+<<<<<<< HEAD
   background: #ffc600;
   border: 0;
   width: 49%;
   float: left;
+=======
+  background:#ffc600;
+  border:0;
+  width: 49%;
+  float:left;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   font-family: 'Pacifico', cursive;
   margin-bottom: 0;
   font-size: 2rem;
   border-bottom: 5px solid #F3C010;
+<<<<<<< HEAD
   cursor: pointer;
+=======
+  cursor:pointer;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   position: relative;
 }
 
 .voiceinator button:active {
+<<<<<<< HEAD
   top: 2px;
+=======
+  top:2px;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 }
 
 .voiceinator button:nth-of-type(1) {

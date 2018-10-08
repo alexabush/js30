@@ -10,7 +10,11 @@ html {
 }
 
 body {
+<<<<<<< HEAD
   margin: 0;
+=======
+  margin:0;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   text-align: center;
   font-family: 'Inconsolata', monospace;
 }
@@ -19,6 +23,7 @@ body {
   font-weight: 100;
   font-size: 20rem;
   margin: 0;
+<<<<<<< HEAD
   color: white;
   text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
 }
@@ -27,6 +32,16 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+=======
+  color:white;
+  text-shadow:4px 4px 0 rgba(0,0,0,0.05);
+}
+
+.timer {
+  display:flex;
+  min-height: 100vh;
+  flex-direction:column;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 }
 
 .timer__controls {
@@ -34,6 +49,7 @@ body {
 }
 
 .timer__controls > * {
+<<<<<<< HEAD
   flex: 1;
 }
 
@@ -59,11 +75,39 @@ body {
   border-bottom: 3px solid rgba(0,0,0,0.2);
   border-right: 1px solid rgba(0,0,0,0.2);
   padding: 1rem;
+=======
+  flex:1;
+}
+
+.timer__controls form {
+  flex:1;
+  display:flex;
+}
+
+.timer__controls input {
+  flex:1;
+  border:0;
+  padding:2rem;
+}
+
+.timer__button {
+  background:none;
+  border:0;
+  cursor: pointer;
+  color:white;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background:rgba(0,0,0,0.1);
+  border-bottom:3px solid rgba(0,0,0,0.2);
+  border-right:1px solid rgba(0,0,0,0.2);
+  padding:1rem;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   font-family: 'Inconsolata', monospace;
 }
 
 .timer__button:hover,
 .timer__button:focus {
+<<<<<<< HEAD
   background: rgba(0,0,0,0.2);
   outline: 0;
 }
@@ -71,6 +115,15 @@ body {
 .display {
   flex: 1;
   display: flex;
+=======
+  background:rgba(0,0,0,0.2);
+  outline:0;
+}
+
+.display {
+  flex:1;
+  display:flex;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -78,5 +131,9 @@ body {
 
 .display__end-time {
   font-size: 4rem;
+<<<<<<< HEAD
   color: white;
+=======
+  color:white;
+>>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
 }
