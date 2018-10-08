@@ -15,8 +15,13 @@ $(async function() {
       let cityLi = $('<li>')
         .addClass('suggestions')
         .append(
-          $('<p>').text(`${city.city}, ${city.state}`),
-          $('<p>').text(addCommas(city.population))
+          $('<p>')
+            .text(`${city.city}, ${city.state}`)
+            .append(
+              $('<span>')
+                .addClass('suggestions')
+                .text(addCommas(city.population))
+            )
         );
       return cityLi;
     });
