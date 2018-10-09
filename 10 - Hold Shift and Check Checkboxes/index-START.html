@@ -61,7 +61,7 @@
   -->
   <div class="inbox">
     <div class="item">
-      <input type="checkbox" id='checkbox1'>
+      <input type="checkbox">
       <p>This is an inbox layout.</p>
     </div>
     <div class="item">
@@ -104,56 +104,39 @@
   crossorigin="anonymous"></script>
   
 <script>
+  "use strict"
   $(function() {
     let isShiftPressed = false
-    // let checkedBoxes = []
     let lastCheckedIndex = -1;
     let $inbox = $('.inbox');
-    let $checkbox1 = $('#checkbox1')
-    let $checkboxes = $inbox.find('input')
-    let checkboxes = Array.from($checkboxes)
-    // $checkbox.prop('checked', true)
+    let checkboxes = Array.from($inbox.find('input'))
 
     $(document).on('keydown', (e) => {
       if (e.keyCode == 16) {
-        console.log("Shift key pressed down");
         isShiftPressed = true
       }
     })
 
     $(document).on('keyup', (e) => {
       if (e.keyCode == 16) {
-        console.log("Shift key released");
         isShiftPressed = false
       }
     })
 
     $inbox.on('click', 'input', function(e) {
       if (isShiftPressed) {
-      console.log('clicked while shift down');
-      handleShiftClick(e, this)
-      } else {
-
+        handleShiftClick(e, this)
       }
       lastCheckedIndex = checkboxes.indexOf(this)
     })
 
     function handleShiftClick(e, that) {
             let clickIndex = checkboxes.indexOf(that)
-            // let nearestCheckedIndex = -1
-            // for (let i = clickIndex - 1; i > 0; i--) {
-            //   if (checkboxes[i].checked) {
-            //     nearestCheckedIndex = i;
-            //     break;
-            //   }
-            // }
             if (lastCheckedIndex < clickIndex) {
-              Array.from($checkboxes).slice(lastCheckedIndex, clickIndex+1).forEach(input => {$(input).prop('checked',true)})
+              checkboxes.slice(lastCheckedIndex, clickIndex+1).forEach(input => {$(input).prop('checked',true)})
             } else {
-              Array.from($checkboxes).slice(clickIndex, lastCheckedIndex+1).forEach(input => {$(input).prop('checked',true)})
+              checkboxes.slice(clickIndex, lastCheckedIndex+1).forEach(input => {$(input).prop('checked',true)})
             }
-            // Array.from($checkboxes).slice(nearestCheckedIndex, clickIndex+1).forEach(input => {$(input).prop('checked',true)})
-            // debugger
     }
 
   })
