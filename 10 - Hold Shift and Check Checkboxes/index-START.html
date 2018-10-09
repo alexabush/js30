@@ -105,10 +105,47 @@
   
 <script>
   $(function() {
+    let isShiftPressed = false
     let $inbox = $('.inbox');
     let $checkbox1 = $('#checkbox1')
-    $checkbox = $inbox.find('input')
-    $checkbox.prop('checked', true)
+    $checkboxes = $inbox.find('input')
+    // $checkbox.prop('checked', true)
+
+    $(document).on('keydown', (e) => {
+      if (e.keyCode == 16) {
+        console.log("Shift key pressed down");
+        isShiftPressed = true
+      }
+    })
+
+    $(document).on('keyup', (e) => {
+      if (e.keyCode == 16) {
+        console.log("Shift key released");
+        isShiftPressed = false
+      }
+    })
+
+    $inbox.on('click', 'input', function(e) {
+      if (isShiftPressed) {
+      console.log('clicked while shift down');
+      handleShiftClick(e, this)
+      } else {
+      console.log('clicked while shift up');
+
+      }
+    })
+
+    function handleShiftClick(e, that) {
+            let firstCheckedIndex = -1
+            let firstChecked = Array.from($checkboxes).find((input, index) => {
+              if (input.checked) {
+                firstCheckedIndex = index
+                return true
+              }
+            })
+            let clickIndex = Array.from($checkboxes).indexOf(that)
+            Array.from($checkboxes).slice(firstCheckedIndex, clickIndex+1).forEach(input => {$(input).prop('checked',true)})
+    }
 
   })
 
