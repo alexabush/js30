@@ -106,9 +106,12 @@
 <script>
   $(function() {
     let isShiftPressed = false
+    // let checkedBoxes = []
+    let lastCheckedIndex = -1;
     let $inbox = $('.inbox');
     let $checkbox1 = $('#checkbox1')
-    $checkboxes = $inbox.find('input')
+    let $checkboxes = $inbox.find('input')
+    let checkboxes = Array.from($checkboxes)
     // $checkbox.prop('checked', true)
 
     $(document).on('keydown', (e) => {
@@ -130,21 +133,27 @@
       console.log('clicked while shift down');
       handleShiftClick(e, this)
       } else {
-      console.log('clicked while shift up');
 
       }
+      lastCheckedIndex = checkboxes.indexOf(this)
     })
 
     function handleShiftClick(e, that) {
-            let firstCheckedIndex = -1
-            let firstChecked = Array.from($checkboxes).find((input, index) => {
-              if (input.checked) {
-                firstCheckedIndex = index
-                return true
-              }
-            })
-            let clickIndex = Array.from($checkboxes).indexOf(that)
-            Array.from($checkboxes).slice(firstCheckedIndex, clickIndex+1).forEach(input => {$(input).prop('checked',true)})
+            let clickIndex = checkboxes.indexOf(that)
+            // let nearestCheckedIndex = -1
+            // for (let i = clickIndex - 1; i > 0; i--) {
+            //   if (checkboxes[i].checked) {
+            //     nearestCheckedIndex = i;
+            //     break;
+            //   }
+            // }
+            if (lastCheckedIndex < clickIndex) {
+              Array.from($checkboxes).slice(lastCheckedIndex, clickIndex+1).forEach(input => {$(input).prop('checked',true)})
+            } else {
+              Array.from($checkboxes).slice(clickIndex, lastCheckedIndex+1).forEach(input => {$(input).prop('checked',true)})
+            }
+            // Array.from($checkboxes).slice(nearestCheckedIndex, clickIndex+1).forEach(input => {$(input).prop('checked',true)})
+            // debugger
     }
 
   })
