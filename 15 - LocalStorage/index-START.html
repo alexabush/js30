@@ -37,8 +37,19 @@
   $(function() {
     const $addItemsForm = $('.add-items')
     const $itemsList = $('.plates');
-    // localStorage.setItem('items', JSON.stringify([{name:'tuna', isChecked:true}, { name: 'swordfish', isChecked: false }]));
 
+    $addItemsForm.on('submit', function (e) {
+      e.preventDefault()
+      let val = $(this).find("input[name='item']").val()
+      let newObj = { name: val, isChecked: false }
+      addItemToStorage(newObj)
+    })
+
+    function populateDOMFromStorage() {
+      JSON.parse(localStorage.getItem('items')).forEach(item => {
+        addItemToDOM(item)
+      })
+    }
 
     function addItemToDOM(item) {
       let { name, isChecked } = item
@@ -49,18 +60,11 @@
       $itemsList.append($li)
     }
 
-    JSON.parse(localStorage.getItem('items')).forEach(item => {
-      addItemToDOM(item)
-    })
-
-    $addItemsForm.on('submit', function(e) {
-      e.preventDefault()
-      let val = $(this).find("input[name='item']").val()
-      let $input = $('<input>').attr('type', 'checkbox')
-      let $li = $('<li>').text(val)
-      $li.append($input)
-      $itemsList.append($li)
-    })
+    function addItemToStorage(item) {
+      let currentItems = JSON.parse(localStorage.getItem('items'))
+      currentItems.push(newObj)
+      localStorage.setItem('items', JSON.stringify(currentItems))
+    }
 
   })
 </script>
