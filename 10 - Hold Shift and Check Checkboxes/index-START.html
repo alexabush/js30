@@ -9,22 +9,6 @@
 
     html {
       font-family: sans-serif;
-<<<<<<< HEAD
-      background: #ffc600;
-    }
-
-    .inbox {
-      max-width: 400px;
-      margin: 50px auto;
-      background: white;
-      border-radius: 5px;
-      box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
-    }
-
-    .item {
-      display: flex;
-      align-items: center;
-=======
       background:#ffc600;
     }
 
@@ -39,39 +23,20 @@
     .item {
       display:flex;
       align-items:center;
->>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
       border-bottom: 1px solid #F1F1F1;
     }
 
     .item:last-child {
-<<<<<<< HEAD
-      border-bottom: 0;
-    }
-
-    input:checked + p {
-      background: #F9F9F9;
-=======
       border-bottom:0;
     }
 
 
     input:checked + p {
       background:#F9F9F9;
->>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
       text-decoration: line-through;
     }
 
     input[type="checkbox"] {
-<<<<<<< HEAD
-      margin: 20px;
-    }
-
-    p {
-      margin: 0;
-      padding: 20px;
-      transition: background 0.2s;
-      flex: 1;
-=======
       margin:20px;
     }
 
@@ -80,17 +45,13 @@
       padding:20px;
       transition:background 0.2s;
       flex:1;
->>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
       font-family:'helvetica neue';
       font-size: 20px;
       font-weight: 200;
       border-left: 1px solid #D1E2FF;
     }
-<<<<<<< HEAD
-=======
 
 
->>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
   </style>
    <!--
    The following is a common layout you would see in an email client.
@@ -100,7 +61,7 @@
   -->
   <div class="inbox">
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" id='checkbox1'>
       <p>This is an inbox layout.</p>
     </div>
     <div class="item">
@@ -137,7 +98,20 @@
     </div>
   </div>
 
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  
 <script>
+  $(function() {
+    let $inbox = $('.inbox');
+    let $checkbox1 = $('#checkbox1')
+    $checkbox = $inbox.find('input')
+    $checkbox.prop('checked', true)
+
+  })
+
 </script>
 </body>
 </html>
