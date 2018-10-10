@@ -24,9 +24,9 @@
       <input type="submit" value="+ Add Item">
     </form>
     <div id='option-buttons'>
-      <button>Check All</button>
-      <button>Uncheck All</button>
-      <button>Delete All</button>
+      <button id='check-all'>Check All</button>
+      <button id='uncheck-all'>Uncheck All</button>
+      <button id='delete-all'>Delete All</button>
     </div>
   </div>
 
@@ -39,7 +39,20 @@
     const $itemsList = $('.plates');
     const $loading = $('#loading')
     const $optionButtons = $('#option-buttons')
+    const $checkAll = $('#check-all')
+    const $uncheckAll = $('#uncheck-all')
+    const $deleteAll = $('#delete-all')
     let getId;
+
+    $('#check-all').click(checkAllInStorage)
+    // $checkAll.click(checkAllInStorage)
+    // $uncheckAll.on('click', uncheckAllInStorage)
+    // $deleteAll.on('click', (e) => {
+    //   debugger
+    //   localStorage.clear()
+    //   $itemsList.empty()
+    // })
+
 
     (function onLoad() {
       getId = counterFactory()
@@ -107,6 +120,20 @@
         }
       })
       localStorage.setItem('items', JSON.stringify(currentItems))
+    }
+
+    function checkAllInStorage() {
+      debugger
+      let currentItems = JSON.parse(localStorage.getItem('items'))
+      let updatedItems = currentItems.map(item => item.isChecked = true)
+      localStorage.setItem('items', JSON.stringify(updatedItems))
+    }
+
+    function uncheckAllInStorage() {
+      debugger
+      let currentItems = JSON.parse(localStorage.getItem('items'))
+      let updatedItems = currentItems.map(item => item.isChecked = false)
+      localStorage.setItem('items', JSON.stringify(updatedItems))
     }
 
     function counterFactory() {
