@@ -17,7 +17,7 @@
     <h2>LOCAL TAPAS</h2>
     <p></p>
     <ul class="plates">
-      <li>Loading Tapas...</li>
+      <li id='loading'>Loading Tapas...</li>
       <!-- <li>
         <label for="checkbox"></label>
         <input type="checkbox" name="checkbox" isChecked=true>
@@ -37,8 +37,10 @@
   $(function() {
     const $addItemsForm = $('.add-items')
     const $itemsList = $('.plates');
+    let getId;
 
     (function onLoad() {
+      getId = counterFactory()
       if (!localStorage.getItem('items')) {
         localStorage.setItem('items', JSON.stringify([]))
       }
@@ -58,12 +60,12 @@
       toggleCheckedInStorage(itemId)
     })
 
-    function getId() {
+    function counterFactory() {
       let id = 0;
-      return (function() {
+      return function incrementAndReturn() {
         id++
         return id
-      })()
+      }
     }
 
     function populateDOMFromStorage() {
@@ -73,6 +75,7 @@
     }
 
     function addItemToDOM(item) {
+      $('#loading').hide()
       let { name, isChecked, id } = item
       let $input = $('<input>').attr('type', 'checkbox')
       if (isChecked) $input[0].checked = true
