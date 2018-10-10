@@ -17,17 +17,17 @@
     <h2>LOCAL TAPAS</h2>
     <p></p>
     <ul class="plates">
-      <li id='loading'>Loading Tapas...</li>
-      <!-- <li>
-        <label for="checkbox"></label>
-        <input type="checkbox" name="checkbox" isChecked=true>
-        Swordfish
-      </li> -->
+      <li id='loading' style='display:none'>No Tapas...</li>
     </ul>
     <form class="add-items">
       <input type="text" name="item" placeholder="Item Name" required>
       <input type="submit" value="+ Add Item">
     </form>
+    <div id='option-buttons'>
+      <button>Check All</button>
+      <button>Uncheck All</button>
+      <button>Delete All</button>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -37,6 +37,8 @@
   $(function() {
     const $addItemsForm = $('.add-items')
     const $itemsList = $('.plates');
+    const $loading = $('#loading')
+    const $optionButtons = $('#option-buttons')
     let getId;
 
     (function onLoad() {
@@ -60,22 +62,19 @@
       toggleCheckedInStorage(itemId)
     })
 
-    function counterFactory() {
-      let id = 0;
-      return function incrementAndReturn() {
-        id++
-        return id
+    function populateDOMFromStorage() {
+      let items = JSON.parse(localStorage.getItem('items'))
+      if (items.length) {
+        items.forEach(item => {
+          addItemToDOM(item)
+        })
+      } else {
+        emptyState()
       }
     }
 
-    function populateDOMFromStorage() {
-      JSON.parse(localStorage.getItem('items')).forEach(item => {
-        addItemToDOM(item)
-      })
-    }
-
     function addItemToDOM(item) {
-      $('#loading').hide()
+      nonEmptyState()
       let { name, isChecked, id } = item
       let $input = $('<input>').attr('type', 'checkbox')
       if (isChecked) $input[0].checked = true
@@ -84,15 +83,21 @@
       $itemsList.append($li)
     }
 
+    function emptyState() {
+      $loading.css('display', 'block')
+      $optionButtons.css('display', 'none')
+    }
+
+    function nonEmptyState() {
+      $loading.css('display', 'none')
+      $optionButtons.css('display', 'block')
+    }
+
     function addItemToStorage(item) {
       let currentItems = JSON.parse(localStorage.getItem('items'))
       currentItems.push(item)
       localStorage.setItem('items', JSON.stringify(currentItems))
     }
-
-/*
-  Some weird behavior with the checkboxes
-*/
 
     function toggleCheckedInStorage(itemId) {
       let currentItems = JSON.parse(localStorage.getItem('items'))
@@ -102,6 +107,14 @@
         }
       })
       localStorage.setItem('items', JSON.stringify(currentItems))
+    }
+
+    function counterFactory() {
+      let id = 0;
+      return function incrementAndReturn() {
+        id++
+        return id
+      }
     }
 
   })
