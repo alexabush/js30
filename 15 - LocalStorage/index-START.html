@@ -38,12 +38,33 @@
     const $addItemsForm = $('.add-items')
     const $itemsList = $('.plates');
 
+    (function onLoad() {
+      if (!localStorage.getItem('items')) {
+        localStorage.setItem('items', JSON.stringify([]))
+      }
+      populateDOMFromStorage()
+    })()
+
     $addItemsForm.on('submit', function (e) {
       e.preventDefault()
       let val = $(this).find("input[name='item']").val()
-      let newObj = { name: val, isChecked: false }
+      let newObj = { name: val, isChecked: false, id:getId() }
       addItemToStorage(newObj)
+      addItemToDOM(newObj)
     })
+
+    $itemsList.on('click', (e) => {
+      let itemId = $(e.target).closest('li')[0].getAttribute('id')
+      toggleCheckedInStorage(itemId)
+    })
+
+    function getId() {
+      let id = 0;
+      return (function() {
+        id++
+        return id
+      })()
+    }
 
     function populateDOMFromStorage() {
       JSON.parse(localStorage.getItem('items')).forEach(item => {
@@ -52,17 +73,27 @@
     }
 
     function addItemToDOM(item) {
-      let { name, isChecked } = item
+      let { name, isChecked, id } = item
       let $input = $('<input>').attr('type', 'checkbox')
       if (isChecked) $input[0].checked = true
-      let $li = $('<li>').text(name)
+      let $li = $('<li>').text(name).attr('id', id)
       $li.prepend($input)
       $itemsList.append($li)
     }
 
     function addItemToStorage(item) {
       let currentItems = JSON.parse(localStorage.getItem('items'))
-      currentItems.push(newObj)
+      currentItems.push(item)
+      localStorage.setItem('items', JSON.stringify(currentItems))
+    }
+
+    function toggleCheckedInStorage(itemId) {
+      let currentItems = JSON.parse(localStorage.getItem('items'))
+      currentItems.map(item => {
+        if (item.id === +itemId) {
+          item.isChecked = !item.isChecked
+        }
+      })
       localStorage.setItem('items', JSON.stringify(currentItems))
     }
 
