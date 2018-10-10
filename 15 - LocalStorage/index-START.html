@@ -87,6 +87,10 @@
       localStorage.setItem('items', JSON.stringify(currentItems))
     }
 
+/*
+  Some weird behavior with the checkboxes
+*/
+
     function toggleCheckedInStorage(itemId) {
       let currentItems = JSON.parse(localStorage.getItem('items'))
       currentItems.map(item => {
