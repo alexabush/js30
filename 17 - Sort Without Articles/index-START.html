@@ -26,18 +26,10 @@
       padding: 0;
       box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
     #bands li {
       border-bottom: 1px solid #efefef;
       padding: 20px;
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> e8688c5d0b9992ab15c48d5b93d258f94e9ab468
     #bands li:last-child {
       border-bottom: 0;
     }
@@ -51,8 +43,43 @@
 
   <ul id="bands"></ul>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <script>
-const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+  const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
+  $bands = $('#bands')
+  let sortedBands = sortArray(bands, ignoreArticles)
+  for (let band of sortedBands) {
+    let $bandLi = $('<li>').text(band)
+    $bands.append($bandLi)
+  }
+
+  function sortArray(arr, comparator) {
+    //make comparator function that ignores articles
+    return arr.sort(comparator)
+  }
+
+  function ignoreArticles(a,b) {
+    debugger
+    let articles = ['a', 'an', 'the', 'we']
+    let aLetters = a.split(' ')
+    let bLetters = b.split(' ')
+    for (let word of articles) {
+      if (aLetters[0].toLowerCase() === word) {
+        a = aLetters.slice(1).join('')
+      }
+      if (bLetters[0].toLowerCase() === word) {
+        b = bLetters.slice(1).join('')
+      }
+    }
+    if (a > b) {
+      return 1
+    } else {
+      return -1
+    }
+  }
+
 
 
 </script>
