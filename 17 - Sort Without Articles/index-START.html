@@ -56,22 +56,18 @@
   }
 
   function sortArray(arr, comparator) {
-    //make comparator function that ignores articles
     return arr.sort(comparator)
   }
 
   function ignoreArticles(a,b) {
-    debugger
-    let articles = ['a', 'an', 'the', 'we']
+    let articles = new Set(['a', 'an', 'the', 'we'])
     let aLetters = a.split(' ')
     let bLetters = b.split(' ')
-    for (let word of articles) {
-      if (aLetters[0].toLowerCase() === word) {
-        a = aLetters.slice(1).join('')
-      }
-      if (bLetters[0].toLowerCase() === word) {
-        b = bLetters.slice(1).join('')
-      }
+    if (articles.has(aLetters[0].toLowerCase())) {
+      a = aLetters.slice(1).join('')
+    }
+    if (articles.has(bLetters[0].toLowerCase())) {
+      b = bLetters.slice(1).join('')
     }
     if (a > b) {
       return 1
