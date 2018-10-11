@@ -60,7 +60,7 @@
   }
 
   function ignoreArticles(a,b) {
-    let articles = new Set(['a', 'an', 'the', 'we'])
+    let articles = new Set(['a', 'an', 'the'])
     let aLetters = a.split(' ')
     let bLetters = b.split(' ')
     if (articles.has(aLetters[0].toLowerCase())) {
